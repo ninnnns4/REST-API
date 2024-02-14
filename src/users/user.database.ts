@@ -112,3 +112,12 @@ export const remove = async (id : string) : Promise<null | void> => {
 
     saveUsers()
 };
+
+export const findByNameContaining = async(substring : string) : Promise<UnitUser[]> => {
+
+    const allUsers = await findAll();
+
+    const name = allUsers. filter(user => user.username.includes(substring))
+
+    return name;
+};
